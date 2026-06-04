@@ -1,0 +1,6 @@
+{
+    "providers": [
+        "Modules\\Comentarios\\app\\Providers\\ComentariosServiceProvider"
+    ],
+    "Comentarios": true
+}
