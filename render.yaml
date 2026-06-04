@@ -11,33 +11,10 @@ services:
         value: false
       - key: APP_KEY
         generateValue: true
-      - key: APP_URL
-        fromService:
-          type: web
-          name: agencia-de-tickets
-          property: host
-      - key: DB_CONNECTION
-        value: mysql
-      - key: DB_HOST
+      - key: DATABASE_URL
         fromDatabase:
           name: agencia-tickets-db
-          property: host
-      - key: DB_PORT
-        fromDatabase:
-          name: agencia-tickets-db
-          property: port
-      - key: DB_DATABASE
-        fromDatabase:
-          name: agencia-tickets-db
-          property: database
-      - key: DB_USERNAME
-        fromDatabase:
-          name: agencia-tickets-db
-          property: user
-      - key: DB_PASSWORD
-        fromDatabase:
-          name: agencia-tickets-db
-          property: password
+          property: connectionString
       - key: SESSION_DRIVER
         value: file
       - key: CACHE_STORE
@@ -49,6 +26,5 @@ services:
 
 databases:
   - name: agencia-tickets-db
-    plan: free
     databaseName: agencia_tickets
-    user: agencia_user
+    plan: free
