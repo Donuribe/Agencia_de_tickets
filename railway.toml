@@ -2,6 +2,6 @@
 builder = "nixpacks"
 
 [deploy]
-startCommand = "php artisan migrate --force --no-interaction && php artisan storage:link --force 2>/dev/null; php -S 0.0.0.0:$PORT -t public"
+startCommand = "bash start.sh"
 restartPolicyType = "on_failure"
 restartPolicyMaxRetries = 3
