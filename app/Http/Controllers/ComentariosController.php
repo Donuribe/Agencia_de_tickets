@@ -49,7 +49,9 @@ class ComentariosController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $comentario = Comentario::with(['ticket', 'usuario.tipoUsuario'])->findOrFail($id);
+
+        return view('comentarios.show', compact('comentario'));
     }
 
     /**
