@@ -17,7 +17,6 @@
                     <div class="card">
                         <div class="card-header bg-secondary" style="font-size: 1.75rem;font-weight: 500; line-height: 1.2; margin-bottom: 0.5rem;">
                             @yield('title')
-                            <a href="{{ route('clientes.selectPdf') }}" class="btn btn-info float-right" title="Descargar PDF"><i class="fas fa-file-pdf"></i></a>
                             <a href="{{ route('clientes.exportExcel', 'all') }}" class="btn btn-success float-right mr-2" title="Descargar Excel"><i class="fas fa-file-excel"></i></a>
                             <a href="{{ route('clientes.create') }}" class="btn btn-primary float-right mr-2" title="Nuevo"><i class="fas fa-plus nav-icon"></i></a>
                         </div>

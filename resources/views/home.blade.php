@@ -168,66 +168,6 @@
 
             </div>
 
-            {{-- ── FILA 3: Tabla de tickets recientes (ancho completo) ── --}}
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="card">
-                        <div class="card-header border-0">
-                            <h3 class="card-title">
-                                <i class="fas fa-ticket-alt mr-2"></i>Tickets Recientes
-                            </h3>
-                            <div class="card-tools">
-                                <a href="{{ route('tickets.index') }}" class="btn btn-sm btn-primary">
-                                    Ver todos
-                                </a>
-                            </div>
-                        </div>
-                        <div class="card-body p-0">
-                            <table class="table table-sm table-hover mb-0">
-                                <thead class="thead-light">
-                                    <tr>
-                                        <th width="40">#</th>
-                                        <th>Título</th>
-                                        <th>Cliente</th>
-                                        <th>Asignado a</th>
-                                        <th width="80">Estado</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @forelse($ticketsRecientes as $ticket)
-                                    <tr>
-                                        <td>{{ $ticket->id }}</td>
-                                        <td>
-                                            <a href="{{ route('tickets.show', $ticket->id) }}">
-                                                {{ \Illuminate\Support\Str::limit($ticket->titulo, 35) }}
-                                            </a>
-                                        </td>
-                                        <td>{{ $ticket->cliente->nombre ?? 'N/A' }}</td>
-                                        <td>
-                                            {{ $ticket->usuarioAsignado->name ?? 'Sin asignar' }}
-                                            @if($ticket->usuarioAsignado?->tipoUsuario)
-                                                <br><small class="text-muted">"{{ $ticket->usuarioAsignado->tipoUsuario->nombre_tipo }}"</small>
-                                            @endif
-                                        </td>
-                                        <td>
-                                            <span class="badge {{ $ticket->estado ? 'badge-success' : 'badge-danger' }}">
-                                                {{ $ticket->estado ? 'Abierto' : 'Cerrado' }}
-                                            </span>
-                                        </td>
-                                    </tr>
-                                    @empty
-                                    <tr>
-                                        <td colspan="5" class="text-center text-muted py-3">No hay tickets registrados</td>
-                                    </tr>
-                                    @endforelse
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            {{-- ── FIN FILA 3 ── --}}
-
         </div>
     </section>
 </div>
