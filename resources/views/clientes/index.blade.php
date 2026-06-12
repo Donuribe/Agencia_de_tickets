@@ -28,7 +28,6 @@
                                     <th>Nombre</th>
                                     <th>Dirección</th>
                                     <th>Teléfono</th>
-                                    <th width="80px">Foto</th>
                                     <th width="60px">Estado</th>
                                     <th width="120px">Acción</th>
                                 </thead>
@@ -39,13 +38,6 @@
                                         <td>{{ $cliente->nombre }}</td>
                                         <td>{{ $cliente->direccion }}</td>
                                         <td>{{ $cliente->telefono }}</td>
-                                        <td>
-                                            @if($cliente->foto)
-                                                <img src="{{ asset($cliente->foto) }}" alt="{{ $cliente->nombre }}" style="max-width: 60px; max-height: 60px;" class="img-thumbnail">
-                                            @else
-                                                <img src="{{ asset('/backend/dist/img/default-150x150.png') }}" alt="Sin foto" style="max-width: 60px; max-height: 60px;" class="img-thumbnail">
-                                            @endif
-                                        </td>
                                         <td>
                                             <input data-type="cliente" data-id="{{$cliente->id}}" class="toggle-class" type="checkbox" data-onstyle="success" data-offstyle="danger"
                                             data-toggle="toggle" data-on="Activo" data-off="Inactivo" {{ $cliente->estado ? 'checked' : '' }}>

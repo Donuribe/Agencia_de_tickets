@@ -71,9 +71,26 @@
                             @endif
                         </div>
                         <div class="card-footer">
-                            <div class="row">
+                            <div class="row align-items-center">
                                 <div class="col-lg-2 col-xs-4">
-                                    <a href="{{ route('clientes.index') }}" class="btn btn-danger btn-block btn-flat">Atrás</a>
+                                    <a href="{{ route('clientes.index') }}" class="btn btn-danger btn-block btn-flat">
+                                        <i class="fas fa-arrow-left mr-1"></i> Atrás
+                                    </a>
+                                </div>
+                                <div class="col-lg-3 col-xs-4">
+                                    <a href="{{ route('clientes.exportPdf', $cliente->id) }}"
+                                       class="btn btn-primary btn-block btn-flat"
+                                       title="Descargar PDF">
+                                        <i class="fas fa-file-download mr-1"></i> Descargar PDF
+                                    </a>
+                                </div>
+                                <div class="col-lg-3 col-xs-4">
+                                    <a href="{{ route('clientes.viewPdf', $cliente->id) }}"
+                                       target="_blank"
+                                       class="btn btn-info btn-block btn-flat"
+                                       title="Ver PDF en el navegador">
+                                        <i class="fas fa-file-pdf mr-1"></i> Ver PDF
+                                    </a>
                                 </div>
                             </div>
                         </div>

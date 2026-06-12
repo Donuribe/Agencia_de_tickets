@@ -168,11 +168,9 @@
 
             </div>
 
-            {{-- ── FILA 3: Tablas y listas ── --}}
+            {{-- ── FILA 3: Tabla de tickets recientes (ancho completo) ── --}}
             <div class="row">
-
-                {{-- Tickets recientes --}}
-                <div class="col-lg-8">
+                <div class="col-lg-12">
                     <div class="card">
                         <div class="card-header border-0">
                             <h3 class="card-title">
@@ -227,74 +225,6 @@
                         </div>
                     </div>
                 </div>
-
-                {{-- Panel derecho --}}
-                <div class="col-lg-4">
-
-                    {{-- Usuarios por tipo --}}
-                    <div class="card">
-                        <div class="card-header border-0">
-                            <h3 class="card-title">
-                                <i class="fas fa-user-tag mr-2"></i>Usuarios por Tipo
-                            </h3>
-                        </div>
-                        <div class="card-body p-0">
-                            <ul class="list-group list-group-flush">
-                                @forelse($usuariosPorTipo as $tipo)
-                                <li class="list-group-item d-flex justify-content-between align-items-center">
-                                    <span><i class="fas fa-circle mr-2 text-primary" style="font-size:0.6rem;"></i>{{ $tipo->nombre_tipo }}</span>
-                                    <span class="badge badge-primary badge-pill">{{ $tipo->usuarios_count }}</span>
-                                </li>
-                                @empty
-                                <li class="list-group-item text-muted text-center">Sin tipos registrados</li>
-                                @endforelse
-                            </ul>
-                        </div>
-                        <div class="card-footer text-right py-2">
-                            <a href="{{ route('tipousuarios.index') }}" class="text-sm text-primary">
-                                Gestionar tipos <i class="fas fa-arrow-right ml-1"></i>
-                            </a>
-                        </div>
-                    </div>
-
-                    {{-- Comentarios recientes --}}
-                    <div class="card mt-0">
-                        <div class="card-header border-0">
-                            <h3 class="card-title">
-                                <i class="fas fa-comments mr-2"></i>Últimos Comentarios
-                            </h3>
-                        </div>
-                        <div class="card-body p-0">
-                            <ul class="list-group list-group-flush">
-                                @forelse($comentariosRecientes as $com)
-                                <li class="list-group-item py-2">
-                                    <div class="d-flex justify-content-between">
-                                        <strong style="font-size:0.85rem;">
-                                            {{ $com->usuario->name ?? 'N/A' }}
-                                            @if($com->usuario?->tipoUsuario)
-                                                <small class="text-muted">"{{ $com->usuario->tipoUsuario->nombre_tipo }}"</small>
-                                            @endif
-                                        </strong>
-                                        <small class="text-muted">Ticket #{{ $com->ticket_id }}</small>
-                                    </div>
-                                    <p class="mb-0 text-muted" style="font-size:0.8rem;">
-                                        {{ \Illuminate\Support\Str::limit($com->mensaje, 60) }}
-                                    </p>
-                                </li>
-                                @empty
-                                <li class="list-group-item text-muted text-center">Sin comentarios</li>
-                                @endforelse
-                            </ul>
-                        </div>
-                        <div class="card-footer text-right py-2">
-                            <a href="{{ route('comentarios.index') }}" class="text-sm text-primary">
-                                Ver todos <i class="fas fa-arrow-right ml-1"></i>
-                            </a>
-                        </div>
-                    </div>
-
-                </div>
-
             </div>
             {{-- ── FIN FILA 3 ── --}}
 
